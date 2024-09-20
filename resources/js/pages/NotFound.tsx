@@ -1,16 +1,11 @@
 import React from 'react';
-import Header from '../components/ui/Header';
+import Header from '../components/layout/Header';
 
-interface NotFoundProps {
-  title: string;
-  description: string;
-}
-
-const NotFound: React.FC<NotFoundProps> = ({ title, description }) => {
+const NotFound: React.FC = () => {
   return (
     <Header
-      title={title}
-      subtitle={description}
+      title='404 - Page Not Found'
+      subtitle="The page you're looking for does not exist."
     />
   );
 };

@@ -14,9 +14,6 @@ class HomeController extends Controller
  */
 public function index()
   {
-    return Inertia::render('Home', [
-      'title' => 'Welcome to the Home Page',
-      'description' => 'Welcome to your Inertia.js powered by React!',
-    ]);    
+    return Inertia::render('Home');    
   }
 }
