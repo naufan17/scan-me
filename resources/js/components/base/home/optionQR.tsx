@@ -28,12 +28,12 @@ const OptionQR: React.FC = () => {
 
   return (
     <Container>
-      <div className="m-16">
-        <div className="grid gap-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+      <div className=" md:m-16">
+        <div className="grid gap-3 md:gap-5 grid-cols-3  md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
           {optionQRData.map((item, index) => (
             <div 
               key={index} 
-              className="p-4 bg-gradient-to-b from-cyan-50 duration-300 transform border-2 border-cyan-100 rounded-md hover:border-cyan-700"
+              className="p-3 md:p-4 bg-gradient-to-b from-cyan-50 duration-300 transform border-2 border-cyan-100 rounded-md hover:border-cyan-700"
               onClick={() => handleCardClick(item.label)}
             >
               <div className="flex mx-auto mb-2 w-10 h-10 text-xl items-center justify-center rounded-full bg-cyan-100">
