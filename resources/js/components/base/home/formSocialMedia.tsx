@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import InputForm from '../../ui/form/InputForm';
+import ButtonForm from '../../ui/form/ButtonForm';
+import OptionForm from '../../ui/form/OptionForm';
 
 const FormSocialMedia: React.FC = () => {
   const [socialMedia, setSocialMedia] = useState<string>('');
@@ -27,65 +30,27 @@ const FormSocialMedia: React.FC = () => {
       </div>
       <form>
         <div className="grid grid-cols-4 my-8 w-full">
-          <div className="flex items-center">
-            <label
-              htmlFor="socialMedia"
-              className='flex text-sm md:text-base font-medium text-cyan-800'
-            >
-              Social Media
-            </label>
-          </div>
-          <div className='flex col-span-3 items-center justify-center'>
-            <select 
-              id='socialMedia' 
-              name='socialMedia' 
-              value={socialMedia}
-              onChange={handlSocialMediaChange}
-              className="flex w-full h-10 px-2  text-sm sm:text-base text-cyan-800 border-2 border-cyan-100 rounded-md focus:outline-none focus:border-cyan-700"
-              required
-            >
-              <option disabled selected hidden value="">
-                Choose
-              </option>
-              {optionSocialMedia.map((option) => (
-                <option key={option.name} value={option.name}>
-                  {option.name}
-                </option>              
-              ))}
-            </select>
-          </div>
+          <OptionForm
+            label="socialMedia"
+            name="Social Media"
+            value={socialMedia}
+            handleChange={handlSocialMediaChange}
+            optionSocialMedia={optionSocialMedia}
+          />
         </div>
         <div className="grid grid-cols-4 my-8 w-full">
-          <div className="flex items-center">
-            <label
-            htmlFor='username'
-              className='flex text-sm md:text-base font-medium text-cyan-800'
-            >
-              Username
-            </label>
-          </div>
-          <div className='flex col-span-3 items-center justify-center'>
-            <input
-              id='username'
-              name='username'
-              type="text"
-              value={username}
-              onChange={handleUsernameChange}
-              className="flex w-full h-10 px-2 text-sm sm:text-base text-cyan-800 border-2 border-cyan-100 rounded-md placeholder:text-cyan-500 focus:outline-none focus:border-cyan-700"
-              placeholder='Username'
-              required
-            />
-          </div>
+          <InputForm
+            name="Username"
+            label="username"
+            value={username}
+            type="text"
+            handleChange={handleUsernameChange}
+            placeholder="username"
+          />
         </div>
-        <div className="flex justify-center md:justify-end">
-          <button 
-            id="save-btn"
-            type="submit"
-            className="inline-flex items-center justify-center h-10 px-10 font-semibold font-sans text-white rounded bg-cyan-700 hover:bg-cyan-800"
-          >
-            Generate
-          </button>
-        </div>
+        <ButtonForm
+          name='Generate'
+        />
       </form>
     </div>
   );

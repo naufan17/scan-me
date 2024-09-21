@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import InputForm from '../../ui/form/InputForm';
+import ButtonForm from '../../ui/form/ButtonForm';
 
 const FormWhatsapp: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>('');
@@ -16,36 +18,18 @@ const FormWhatsapp: React.FC = () => {
       </div>
       <form>
         <div className="grid grid-cols-4 my-8 w-full">
-          <div className="flex items-center">
-            <label
-              htmlFor='phoneNumber'
-              className='flex text-sm md:text-base font-medium text-cyan-800'
-            >
-              Phone Number
-            </label>
-          </div>
-          <div className='flex col-span-3 items-center justify-center'>
-            <input
-              id='phoneNumber'
-              name='phoneNumber'
-              type="text"
-              value={phoneNumber}
-              onChange={handleChange}
-              className="flex w-full h-10 px-2 text-sm sm:text-base text-cyan-800 border-2 border-cyan-100 rounded-md placeholder:text-cyan-500 focus:outline-none focus:border-cyan-700"
-              placeholder='081234567890'
-              required
-            />
-          </div>
+          <InputForm
+            name="Phone Number"
+            label="phoneNumber"
+            value={phoneNumber}
+            type="text"
+            handleChange={handleChange}
+            placeholder="081234567890"
+          />
         </div>
-        <div className="flex justify-center md:justify-end">
-          <button 
-            id="save-btn"
-            type="submit"
-            className="inline-flex items-center justify-center h-10 px-10 font-semibold font-sans text-white rounded bg-cyan-700 hover:bg-cyan-800"
-          >
-            Generate
-          </button>
-        </div>
+        <ButtonForm
+          name='Generate'
+        />
       </form>
     </div>
   );

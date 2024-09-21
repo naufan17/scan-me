@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
+import InputForm from '../../ui/form/InputForm';
+import ButtonForm from '../../ui/form/ButtonForm';
 
 const FormUrl: React.FC = () => {
   const [url, setUrl] = useState<string>('');
 
-  const handleChage = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setUrl(event.target.value);
   }
 
@@ -16,36 +18,18 @@ const FormUrl: React.FC = () => {
       </div>
       <form>
         <div className="grid grid-cols-4 my-8 w-full">
-          <div className="flex items-center">
-            <label
-              htmlFor='url'
-              className='flex text-sm md:text-base font-medium text-cyan-800'
-            >
-              Url
-            </label>
-          </div>
-          <div className='flex col-span-3 items-center justify-center'>
-            <input
-              id='url'
-              name='url'
-              type='text'
-              value={url}
-              onChange={handleChage}
-              className="flex w-full h-10 px-2 text-sm text-cyan-800 sm:text-base border-2 border-cyan-100 rounded-md placeholder:text-cyan-500 focus:outline-none focus:border-cyan-700"
-              placeholder='https://example.com'
-              required
-            />
-          </div>
+          <InputForm
+            name="Url"
+            label="url"
+            value={url}
+            type="text"
+            handleChange={handleChange}
+            placeholder="https://example.com"
+          />
         </div>
-        <div className="flex justify-center md:justify-end">
-          <button 
-            id="save-btn"
-            type="submit"
-            className="inline-flex items-center justify-center h-10 px-10 font-semibold font-sans text-white rounded bg-cyan-700 hover:bg-cyan-800"
-          >
-            Generate
-          </button>
-        </div>
+        <ButtonForm
+          name='Generate'
+        />
       </form>
     </div>
   );

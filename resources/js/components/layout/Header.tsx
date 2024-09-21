@@ -11,12 +11,12 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
     <Container>
       <div className="max-w-xl mt-16 sm:mt-24 md:mx-auto sm:text-center lg:max-w-2xl">
         {title && (
-          <h2 className="mb-8 text-3xl font-bold leading-none tracking-tight text-cyan-800 sm:text-5xl md:mx-auto">
+          <h2 className="mb-8 text-3xl font-bold leading-none tracking-tight text-cyan-800 sm:text-4xl md:text-5xl md:mx-auto">
             {title}
           </h2>
         )}
         {subtitle && (
-          <p className="text-sm text-cyan-700 sm:text-xl">
+          <p className="text-base text-cyan-700 sm:text-lg md:text-xl">
             {subtitle}
           </p>
         )}
