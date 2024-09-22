@@ -6,12 +6,13 @@ interface TextareaFormProps {
   value: string;
   handleChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   placeholder: string;
+  error: string;
 }
 
-const TextareaForm: React.FC<TextareaFormProps> = ({ name, label, value, handleChange, placeholder}) => {
+const TextareaForm: React.FC<TextareaFormProps> = ({ name, label, value, handleChange, placeholder, error }) => {
   return (
     <>
-      <div className="flex items-center">
+      <div className="inline-block items-center">
         <label
           htmlFor={label}
           className='flex text-sm md:text-base font-medium text-cyan-800'
@@ -19,7 +20,7 @@ const TextareaForm: React.FC<TextareaFormProps> = ({ name, label, value, handleC
           {name}
         </label>
       </div>
-      <div className='flex col-span-3 items-center justify-center'>
+      <div className='inline-block col-span-3 items-center justify-center'>
         <textarea
           id={label}
           name={label}
@@ -30,6 +31,7 @@ const TextareaForm: React.FC<TextareaFormProps> = ({ name, label, value, handleC
           required
         >
         </textarea>
+        {error && <p className="text-sm p-1 text-red-500">{error}</p>}
       </div>
     </>
   )

@@ -6,12 +6,13 @@ interface OptionFormProps {
   value: string;
   handleChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   optionSocialMedia: {name: string}[];
+  error: string;
 }
 
-const OptionForm: React.FC<OptionFormProps> = ({ label, name, value, handleChange, optionSocialMedia }) => {
+const OptionForm: React.FC<OptionFormProps> = ({ label, name, value, handleChange, optionSocialMedia, error }) => {
   return (
     <>
-      <div className="flex items-center">
+      <div className="inline-block items-center">
         <label
           htmlFor={label}
           className='flex text-sm md:text-base font-medium text-cyan-800'
@@ -19,7 +20,7 @@ const OptionForm: React.FC<OptionFormProps> = ({ label, name, value, handleChang
           {name}
         </label>
       </div>
-      <div className='flex col-span-3 items-center justify-center'>
+      <div className='inline-block col-span-3 items-center justify-center'>
         <select 
           id={label} 
           name={label}
@@ -37,6 +38,7 @@ const OptionForm: React.FC<OptionFormProps> = ({ label, name, value, handleChang
             </option>              
           ))}
         </select>
+        {error && <p className="text-sm p-1 text-red-500">{error}</p>}
       </div>
     </>
   )

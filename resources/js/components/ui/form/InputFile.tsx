@@ -6,12 +6,13 @@ interface InputFileProps {
   accept: string;
   type: string;
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  error: string;
 }
 
-const InputFile: React.FC<InputFileProps> = ({ name, label, accept, type, handleChange }) => {
+const InputFile: React.FC<InputFileProps> = ({ name, label, accept, type, handleChange, error }) => {
   return (
     <>
-      <div className="flex items-center">
+      <div className="inline-block items-center">
         <label
           htmlFor={label}
           className='flex text-sm md:text-base font-medium text-cyan-800'
@@ -19,17 +20,18 @@ const InputFile: React.FC<InputFileProps> = ({ name, label, accept, type, handle
           {name}        
         </label>
       </div>
-      <div className='flex col-span-3 items-center justify-center'>
+      <div className='inline-block col-span-3 items-center justify-center'>
         <input 
           id={label}
           name={label}
           type={type} 
           accept={accept}
           onChange={handleChange}
-          className="flex w-full text-sm sm:text-base font-medium
+          className="flex w-full text-sm text-cyan-800 sm:text-base font-medium
             file:cursor-pointer file:h-10 file:px-4 file:mr-4 file:bg-cyan-200 file:hover:bg-cyan-300 file:text-cyan-800 file:border-0 file:rounded-full"
           required
-          />
+        />
+        {error && <p className="text-sm p-1 text-red-500">{error}</p>}
       </div>
     </>
   )
