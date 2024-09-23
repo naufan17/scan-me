@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
     <Container>
       <footer>
         <div className="flex justify-center mb-2 md:mb-4">
-          <p className="text-base font-medium text-cyan-800">
+          <p className="text-sm sm:text-base font-medium text-cyan-800">
             Made by Naufan
           </p>
         </div>

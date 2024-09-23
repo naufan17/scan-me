@@ -18,6 +18,7 @@ const FormSocialMedia: React.FC = () => {
   ]
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
+    setError({});
     const { name, value } = event.target;
 
     switch (name) {

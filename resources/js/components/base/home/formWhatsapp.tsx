@@ -11,6 +11,7 @@ const FormWhatsapp: React.FC = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPhoneNumber(event.target.value);
+    setError('');
   }
 
   const handleGenerateQR = () => {

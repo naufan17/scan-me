@@ -10,6 +10,7 @@ const FormVideo: React.FC = () => {
   const [error, setError] = useState<string>('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setError('');
     const file = event.target.files?.[0];
     if (file) {
       setVideo(file);
@@ -34,7 +35,7 @@ const FormVideo: React.FC = () => {
 
     if (!video) {
       newError.video = 'Video is required';
-    } else if (validTypes.includes(video.type)) {
+    } else if (!validTypes.includes(video.type)) {
       newError.video = 'Video format is invalid';
     }
   

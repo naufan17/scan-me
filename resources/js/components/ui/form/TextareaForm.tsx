@@ -12,10 +12,10 @@ interface TextareaFormProps {
 const TextareaForm: React.FC<TextareaFormProps> = ({ name, label, value, handleChange, placeholder, error }) => {
   return (
     <>
-      <div className="inline-block items-center">
+      <div className="inline-block pt-2">
         <label
           htmlFor={label}
-          className='flex text-sm md:text-base font-medium text-cyan-800'
+          className='inline-block text-sm sm:text-base font-medium text-cyan-800'
         >
           {name}
         </label>
@@ -26,12 +26,12 @@ const TextareaForm: React.FC<TextareaFormProps> = ({ name, label, value, handleC
           name={label}
           value={value}
           onChange={handleChange}
-          className="flex w-full h-40 p-2 text-sm sm:text-base text-cyan-800 border-2 border-cyan-100 rounded-md placeholder:text-cyan-500 focus:outline-none focus:border-cyan-700"
+          className={`flex w-full h-28 sm:h-40 p-2 text-sm sm:text-base text-cyan-800 border-2 border-cyan-100 rounded-md placeholder:text-cyan-500 focus:outline-none focus:border-cyan-700 ${error? 'border-red-500 text-red-600 placeholder:text-red-300' : ''}`}
           placeholder={placeholder}
           required
         >
         </textarea>
-        {error && <p className="text-sm p-1 text-red-500">{error}</p>}
+        {error && <p className="text-xs sm:text-sm p-1 text-red-500">{error}</p>}
       </div>
     </>
   )

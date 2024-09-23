@@ -10,6 +10,7 @@ const FormText: React.FC = () => {
   const [error, setError] = useState<string>('');
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setError('');
     setText(event.target.value);
   }
 

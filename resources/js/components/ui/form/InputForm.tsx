@@ -13,15 +13,15 @@ interface InputFormProps {
 const InputForm: React.FC<InputFormProps> = ({ name, label, value, type, handleChange, placeholder, error }) => {
   return (
     <>
-      <div className="inline-block items-center">
+      <div className="inline-block items-center pt-2">
         <label
           htmlFor={label}
-          className='flex text-sm md:text-base font-medium text-cyan-800'
+          className='inline-block text-sm sm:text-base font-medium text-cyan-800'
         >
           {name}
         </label>
       </div>
-      <div className='inline-block col-span-3 items-center justify-center'>
+      <div className='inline-block col-span-3'>
         <input
           id={label}
           name={label}
@@ -29,10 +29,10 @@ const InputForm: React.FC<InputFormProps> = ({ name, label, value, type, handleC
           value={value}
           onChange={handleChange}
           placeholder={placeholder}
-          className="flex w-full h-10 px-2 text-sm sm:text-base text-cyan-800 border-2 border-cyan-100 rounded-md placeholder:text-cyan-500 focus:outline-none focus:border-cyan-700"
+          className={`flex w-full h-9 sm:h-10 px-2 text-sm sm:text-base text-cyan-800 border-2 border-cyan-100 rounded-md placeholder:text-cyan-500 focus:outline-none focus:border-cyan-700 ${error? 'border-red-500 text-red-600 placeholder:text-red-300' : ''}`}
           required
         />
-        {error && <p className="text-sm p-1 text-red-500">{error}</p>}
+        {error && <p className="text-xs sm:text-sm p-1 text-red-500">{error}</p>}
       </div>
     </>
   )

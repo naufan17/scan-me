@@ -10,6 +10,7 @@ const FormImage: React.FC = () => {
   const [error, setError] = useState<string>('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setError('');
     const file = event.target.files?.[0];
     if (file) {
       setImage(file);
@@ -34,7 +35,7 @@ const FormImage: React.FC = () => {
 
     if (!image) {
       newError.image = 'Image is required';
-    } else if (validTypes.includes(image.type)) {
+    } else if (!validTypes.includes(image.type)) {
       newError.image = 'Image format is invalid';
     }
   

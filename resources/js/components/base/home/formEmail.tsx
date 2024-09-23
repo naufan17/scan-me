@@ -10,6 +10,7 @@ const FormEmail: React.FC = () => {
   const [error, setError] = useState<string>('');
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setError('');
     setEmail(event.target.value);
   }
 

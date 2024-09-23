@@ -18,10 +18,10 @@ const Home: React.FC = () => {
     { icon: 'fas fa-font', label: 'Text' },
     { icon: 'fas fa-envelope', label: 'Email' },
     { icon: 'fa-brands fa-whatsapp', label: 'Whatsapp' },
+    { icon: 'fas fa-circle-user', label: 'Social Media' },
+    { icon: 'fas fa-file', label: 'Document' },
     { icon: 'fas fa-image', label: 'Image' },
     { icon: 'fas fa-video', label: 'Video' },
-    { icon: 'fas fa-file', label: 'Document' },
-    { icon: 'fas fa-circle-user', label: 'Social Media' },
   ]
 
   const handleClickOption = (label: string) => {
@@ -42,10 +42,10 @@ const Home: React.FC = () => {
       {option === 'Text' && <FormText/>}
       {option === 'Email' && <FormEmail/>}
       {option === 'Whatsapp' && <FormWhatsapp/>}
+      {option === 'Social Media' && <FormSocialMedia/>}
+      {option === 'Document' && <FormDocument/>}
       {option === 'Image' && <FormImage/>}
       {option === 'Video' && <FormVideo/>}
-      {option === 'Document' && <FormDocument/>}
-      {option === 'Social Media' && <FormSocialMedia/>}
       <Footer/>
     </>
   );

@@ -12,7 +12,7 @@ const ImageQR: React.FC = () => {
           </h4>
         </div>
         <div className="flex justify-center my-8 md:my-12">
-          <div className="w-60 h-60">
+          <div className="w-48 sm:w-72 h-48 sm:h-72">
             <img
               src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=Hello%20World" 
               alt="QR Code"

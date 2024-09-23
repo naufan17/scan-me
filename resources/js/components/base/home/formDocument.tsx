@@ -10,6 +10,7 @@ const FormDocument: React.FC = () => {
   const [error, setError] = useState<string>('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setError('');
     const file = event.target.files?.[0];
     if (file) {
       setDocument(file);
@@ -34,7 +35,7 @@ const FormDocument: React.FC = () => {
     
     if (!document) {
       newError.document = 'Document is required';
-    } else if (validTypes.includes(document.type)) {
+    } else if (!validTypes.includes(document.type)) {
       newError.document = 'Document format is invalid';
     }
   
