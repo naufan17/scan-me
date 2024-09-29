@@ -1,8 +1,8 @@
 import React, { useState, ChangeEvent } from 'react';
-import InputForm from '../../ui/form/InputForm';
-import ButtonForm from '../../ui/form/ButtonForm';
-import Container from '../../layout/Container';
-import ImageQR from './imageQR';
+import InputForm from '../../components/ui/form/InputForm';
+import ButtonForm from '../../components/ui/form/ButtonForm';
+import Container from '../../components/layout/Container';
+import ImageQR from './ImageQR';
 
 const FormUrl: React.FC = () => {
   const [url, setUrl] = useState<string>('');
@@ -40,33 +40,26 @@ const FormUrl: React.FC = () => {
   }
 
   return (
-    <>
-      <Container>
-        <div className="p-6 md:p-12 md:mx-16 bg-gradient-to-b from-cyan-50 rounded-xl border-2 border-cyan-100 place-items-center">
-          <div className="flex mb-4 justify-center">
-            <h4 className="text-xl sm:text-2xl font-semibold text-cyan-800">
-              Url
-            </h4>
-          </div>
-          <div className="grid grid-cols-4 my-8 w-full">
-            <InputForm
-              name="Url"
-              label="url"
-              value={url}
-              type="text"
-              handleChange={handleChange}
-              placeholder="https://example.com"
-              error={error}
-            />
-          </div>
-          <ButtonForm
-            name='Generate'
-            onClick={handleGenerateQR}
+    <Container>
+      <div className="p-6 md:p-12 md:mx-16 bg-gradient-to-l from-cyan-50 rounded-xl border-2 border-cyan-100 place-items-center">
+        <div className="grid grid-cols-4 my-8 w-full">
+          <InputForm
+            name="Url"
+            label="url"
+            value={url}
+            type="text"
+            handleChange={handleChange}
+            placeholder="https://example.com"
+            error={error}
           />
         </div>
-      </Container>
-      {showQR && <ImageQR/>}
-    </>
+        <ButtonForm
+          name='Generate'
+          onClick={handleGenerateQR}
+        />
+        {showQR && <ImageQR/>}
+      </div>
+    </Container>
   );
 };
 

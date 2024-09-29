@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
-import CardOptionQR from '../components/base/home/cardOptionQR';
-import FormUrl from '../components/base/home/formUrl';
-import FormEmail from '../components/base/home/formEmail';
-import FormText from '../components/base/home/formText';
-import FormWhatsapp from '../components/base/home/formWhatsapp';
-import FormImage from '../components/base/home/formImage';
-import FormVideo from '../components/base/home/formVideo';
-import FormDocument from '../components/base/home/formDocument';
-import FormSocialMedia from '../components/base/home/formSocialMedia';
+import Header from '../../components/layout/Header';
+import Footer from '../../components/layout/Footer';
+import CardOptionQR from './CardOptionQR';
+import FormUrl from './FormUrl';
+import FormEmail from './FormEmail';
+import FormText from './FormText';
+import FormWhatsapp from './FormWhatsapp';
+import FormImage from './FormImage';
+import FormVideo from './FormVideo';
+import FormDocument from './FormDocument';
+import FormSocialMedia from './FormSocialMedia';
 
-const Home: React.FC = () => {
+interface ImageQRProps {
+  qrcode?: string
+}
+
+const Index: React.FC<ImageQRProps> = ({ qrcode }) => {
   const [option, setOption] = useState<string | null>(null);
   const optionQRData = [
     { icon: 'fas fa-link', label: 'Url' },
@@ -26,6 +30,10 @@ const Home: React.FC = () => {
 
   const handleClickOption = (label: string) => {
     setOption(label);
+  }
+
+  if (qrcode) {
+    console.log(qrcode)
   }
 
   return (
@@ -51,4 +59,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Index;

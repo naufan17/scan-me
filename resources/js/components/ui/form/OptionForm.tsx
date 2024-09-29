@@ -26,7 +26,7 @@ const OptionForm: React.FC<OptionFormProps> = ({ label, name, value, handleChang
           name={label}
           value={value}
           onChange={handleChange}
-          className={`flex w-full h-9 sm:h-10 px-2 text-sm sm:text-base text-cyan-800 border-2 border-cyan-100 rounded-md appearance-none focus:outline-none focus:border-cyan-700 ${error? 'border-red-500 text-red-600' : ''}`}
+          className={`flex w-full h-9 sm:h-10 px-2 text-sm sm:text-base text-cyan-800 border-2 border-cyan-100 rounded-md appearance-none focus:outline-none focus:border-cyan-700 ${error? 'border-red-500 text-red-600 ' : ''}`}
           required
         >
           <option disabled hidden value="">

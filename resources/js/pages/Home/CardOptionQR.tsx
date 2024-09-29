@@ -1,12 +1,12 @@
 import React from 'react';
-import Container from '../../layout/Container';
+import Container from '../../components/layout/Container';
 
 interface CardOptionQRProps {
   optionQRData: { icon: string; label: string }[];
   onClickOption: (label: string) => void;
 }
 
-const cardOptionQR: React.FC<CardOptionQRProps> = ({ optionQRData, onClickOption }) => {
+const CardOptionQR: React.FC<CardOptionQRProps> = ({ optionQRData, onClickOption }) => {
   return (
     <Container>
       <div className="md:mx-16">
@@ -14,7 +14,7 @@ const cardOptionQR: React.FC<CardOptionQRProps> = ({ optionQRData, onClickOption
           {optionQRData.map((item, index) => (
             <div 
               key={index} 
-              className="p-3 md:p-4 bg-gradient-to-b from-cyan-50 duration-300 transform border-2 border-cyan-100 rounded-md hover:border-cyan-700 cursor-pointer"
+              className="p-3 md:p-4 bg-gradient-to-l from-cyan-50 duration-300 transform border-2 border-cyan-100 rounded-md hover:border-cyan-700 cursor-pointer"
               onClick={() => onClickOption(item.label)}
             >
               <div className="flex mx-auto mb-2 w-8 h-8 sm:w-10 sm:h-10 text-base sm:text-xl items-center justify-center rounded-full bg-cyan-100">
@@ -31,4 +31,4 @@ const cardOptionQR: React.FC<CardOptionQRProps> = ({ optionQRData, onClickOption
   );
 };
 
-export default cardOptionQR;
+export default CardOptionQR;
