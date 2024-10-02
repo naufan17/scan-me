@@ -1,29 +1,29 @@
 import React from 'react';
 import Container from '../../components/layout/Container';
+import { Link } from '@inertiajs/react';
 
 interface CardOptionQRProps {
-  optionQRData: { icon: string; label: string }[];
-  onClickOption: (label: string) => void;
+  optionQRData: { icon: string; label: string, url: string }[];
 }
 
-const CardOptionQR: React.FC<CardOptionQRProps> = ({ optionQRData, onClickOption }) => {
+const CardOptionQR: React.FC<CardOptionQRProps> = ({ optionQRData }) => {
   return (
-    <Container>
+    <Container> 
       <div className="md:mx-16">
-        <div className="grid gap-3 md:gap-5 grid-cols-3  md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+        <div className="grid gap-6 md:gap-12 grid-cols-3  md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
           {optionQRData.map((item, index) => (
-            <div 
-              key={index} 
-              className="p-3 md:p-4 bg-gradient-to-l from-cyan-50 duration-300 transform border-2 border-cyan-100 rounded-md hover:border-cyan-700 cursor-pointer"
-              onClick={() => onClickOption(item.label)}
+            <Link
+              key={index}
+              href={`${item.url}`}
+              className="cursor-pointer text-cyan-800 hover:text-slate-800"
             >
-              <div className="flex mx-auto mb-2 w-8 h-8 sm:w-10 sm:h-10 text-base sm:text-xl items-center justify-center rounded-full bg-cyan-100">
-                <i className={`${item.icon} text-cyan-700`}></i>
+              <div className="flex mx-auto mb-2 w-10 h-10 sm:w-12 sm:h-12 text-lg sm:text-2xl items-center justify-center rounded-full bg-cyan-100">
+                <i className={`${item.icon}`}></i>
               </div>
-              <h6 className="text-sm sm:text-base font-medium text-center text-cyan-800">
+              <h6 className="text-sm sm:text-base font-medium text-center ">
                 {item.label}
               </h6>
-            </div>          
+            </Link>
           ))}
         </div>
       </div>

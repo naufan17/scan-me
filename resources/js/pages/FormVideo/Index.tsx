@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import InputFile from '../../components/ui/form/InputFile';
 import ButtonForm from '../../components/ui/form/ButtonForm';
 import Container from '../../components/layout/Container';
-import ImageQR from './ImageQR';
+import ImageQR from '../Home/ImageQR';
+import Navbar from '../../components/layout/Navbar';
+import Footer from '../../components/layout/Footer';
 
-const FormVideo: React.FC = () => {
+const Index: React.FC = () => {
   const [video, setVideo] = useState<File | null>(null);
   const [showQR, setShowQR] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
@@ -43,27 +45,31 @@ const FormVideo: React.FC = () => {
   }
 
   return (
-    <Container>
-      <div className="p-6 md:p-12 md:mx-16 bg-gradient-to-l from-cyan-50 rounded-xl border-2 border-cyan-100 place-items-center">
-        <div className="grid grid-cols-4 my-8 w-full">
-          <InputFile
-            name="Video"
-            label="video"
-            accept="video/*"
-            type="file"
-            handleChange={handleChange}
-            error={error}
-          />
-        </div>
-        <ButtonForm
-          name='Generate'
-          onClick={handleGenerateQR}
+    <>
+      <Navbar/>
+        <Container>
+          <div className="p-6 md:p-12 md:mx-16 bg-gradient-to-l from-cyan-50 rounded-xl border-2 border-cyan-100 place-items-center">
+            <div className="grid grid-cols-4 my-8 w-full">
+              <InputFile
+                name="Video"
+                label="video"
+                accept="video/*"
+                type="file"
+                handleChange={handleChange}
+                error={error}
+              />
+            </div>
+            <ButtonForm
+              name='Generate'
+              onClick={handleGenerateQR}
 
-        />
-        {showQR && <ImageQR/>}
-      </div>
-    </Container>
+            />
+            {showQR && <ImageQR/>}
+          </div>
+        </Container>
+      <Footer/>
+    </>
   );
 };
 
-export default FormVideo;
+export default Index;

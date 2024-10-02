@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import InputForm from '../../components/ui/form/InputForm';
 import ButtonForm from '../../components/ui/form/ButtonForm';
 import Container from '../../components/layout/Container';
-import ImageQR from './ImageQR';
+import ImageQR from '../Home/ImageQR';
+import Navbar from '../../components/layout/Navbar';
+import Footer from '../../components/layout/Footer';
 
-const FormWhatsapp: React.FC = () => {
+const Index: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>('');
   const [showQR, setShowQR] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
@@ -40,27 +42,31 @@ const FormWhatsapp: React.FC = () => {
   }
 
   return (
-    <Container>
-      <div className="p-6 md:p-12 md:mx-16 bg-gradient-to-l from-cyan-50 rounded-xl border-2 border-cyan-100 place-items-center">
-        <div className="grid grid-cols-4 my-8 w-full">
-          <InputForm
-            name="Phone Number"
-            label="phoneNumber"
-            value={phoneNumber}
-            type="text"
-            handleChange={handleChange}
-            placeholder="081234567890"
-            error={error}
-          />
-        </div>
-        <ButtonForm
-          name='Generate'
-          onClick={handleGenerateQR}
-        />
-        {showQR && <ImageQR/>}
-      </div>
-    </Container>
+    <>
+      <Navbar/>
+        <Container>
+          <div className="p-6 md:p-12 md:mx-16 bg-gradient-to-l from-cyan-50 rounded-xl border-2 border-cyan-100 place-items-center">
+            <div className="grid grid-cols-4 my-8 w-full">
+              <InputForm
+                name="Phone Number"
+                label="phoneNumber"
+                value={phoneNumber}
+                type="text"
+                handleChange={handleChange}
+                placeholder="081234567890"
+                error={error}
+              />
+            </div>
+            <ButtonForm
+              name='Generate'
+              onClick={handleGenerateQR}
+            />
+            {showQR && <ImageQR/>}
+          </div>
+        </Container>
+      <Footer/>
+    </>
   );
 };
 
-export default FormWhatsapp;
+export default Index;

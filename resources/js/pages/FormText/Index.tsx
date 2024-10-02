@@ -3,13 +3,15 @@ import { Inertia } from '@inertiajs/inertia';
 import TextareaForm from '../../components/ui/form/TextareaForm';
 import ButtonForm from '../../components/ui/form/ButtonForm';
 import Container from '../../components/layout/Container';
-import ImageQR from './ImageQR';
+import ImageQR from '../Home/ImageQR';
+import Navbar from '../../components/layout/Navbar';
+import Footer from '../../components/layout/Footer';
 
 interface ImageQRProps {
   qrcode?: string | undefined;
 }
 
-const FormText: React.FC<ImageQRProps> = ({ qrcode }) => {
+const Index: React.FC<ImageQRProps> = ({ qrcode }) => {
   const [text, setText] = useState<string>('');
   const [showQR, setShowQR] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
@@ -43,26 +45,30 @@ const FormText: React.FC<ImageQRProps> = ({ qrcode }) => {
   }
   
   return (
-    <Container>
-      <div className="p-6 md:p-12 md:mx-16 bg-gradient-to-l from-cyan-50 rounded-xl border-2 border-cyan-100 place-items-center">
-        <div className="grid grid-cols-4 my-8 w-full">
-          <TextareaForm
-            name='Text'
-            label='text'
-            value={text}
-            handleChange={handleChange}
-            placeholder='Write your text here'
-            error={error}
-          />
-        </div>
-        <ButtonForm
-          name='Generate'
-          onClick={handleGenerateQR}
-        />
-        {showQR && <ImageQR qrcode={qrcode}/>}
-      </div>
-    </Container>
+    <>
+      <Navbar/>
+        <Container>
+          <div className="p-6 md:p-12 md:mx-16 bg-gradient-to-l from-cyan-50 rounded-xl border-2 border-cyan-100 place-items-center">
+            <div className="grid grid-cols-4 my-8 w-full">
+              <TextareaForm
+                name='Text'
+                label='text'
+                value={text}
+                handleChange={handleChange}
+                placeholder='Write your text here'
+                error={error}
+              />
+            </div>
+            <ButtonForm
+              name='Generate'
+              onClick={handleGenerateQR}
+            />
+            {showQR && <ImageQR qrcode={qrcode}/>}
+          </div>
+        </Container>
+      <Footer/>
+    </>
   );
 };
 
-export default FormText;
+export default Index;

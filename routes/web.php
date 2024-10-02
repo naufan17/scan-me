@@ -2,6 +2,14 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QRCodeController;
+use App\Http\Controllers\QRCodeUrlController;
+use App\Http\Controllers\QRCodeTextController;
+use App\Http\Controllers\QRCodeEmailController;
+use App\Http\Controllers\QRCodeWhatsappController;
+use App\Http\Controllers\QRCodeSocialMediaController;
+use App\Http\Controllers\QRCodeDocumentController;
+use App\Http\Controllers\QRCodeImageController;
+use App\Http\Controllers\QRCodeVideoController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 
@@ -9,12 +17,16 @@ use Illuminate\Support\Facades\Route;
 //   return view('welcome');
 // });
 
-Route::get('/', [HomeController::class, 'index'])->name('Home');
-Route::get('/generate-qrcode', [QRCodeController::class, 'generateQRCode'])->name('Generate QR Code');
-Route::post('/generate-qrcode/url', [QRCodeController::class, 'generateUrlQRCode'])->name('Generate QR Code Url');
-Route::post('/generate-qrcode/text', [QRCodeController::class, 'generateTextQRCode'])->name('Generate QR Code Text');
-Route::post('/generate-qrcode/email', [QRCodeController::class, 'generateEmailQRCode'])->name('Generate QR Code Email');
-Route::post('/generate-qrcode/whatsapp', [QRCodeController::class, 'generateWhatsappQRCode'])->name('Generate QR Code Whatsapp');
+Route::get('/', [HomeController::class, 'index'])->name('home-page');
+Route::get('/generate-qrcode', [QRCodeController::class, 'generateQRCode'])->name('Generate QR Code Page');
+Route::get('/url', [QRCodeUrlController::class, 'index'])->name('generate-qrcode-url');
+Route::get('/text', [QRCodeTextController::class, 'index'])->name('generate-qrcode-text');
+Route::get('/email', [QRCodeEmailController::class, 'index'])->name('generate-qrcode-email');
+Route::get('/whatsapp', [QRCodeWhatsappController::class, 'index'])->name('generate-qrcode-whatsapp');
+Route::get('/social-media', [QRCodeSocialMediaController::class, 'index'])->name('generate-qrcode-social-media');
+Route::get('/document', [QRCodeDocumentController::class, 'index'])->name('generate-qrcode-document');
+Route::get('/image', [QRCodeImageController::class, 'index'])->name('generate-qrcode-image');
+Route::get('/video', [QRCodeVideoController::class, 'index'])->name('generate-qrcode-video');
 
 Route::fallback(function () {
   return Inertia::render('NotFound', props: [

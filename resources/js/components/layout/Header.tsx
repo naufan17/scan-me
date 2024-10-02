@@ -9,7 +9,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
   return (
     <Container>
-      <div className="max-w-xl mt-16 sm:mt-24 md:mx-auto sm:text-center lg:max-w-2xl">
+      <div className="max-w-xl mt-12 sm:mt-18 md:mx-auto sm:text-center lg:max-w-2xl">
         {title && (
           <h2 className="mb-8 text-3xl font-bold leading-none tracking-tight text-cyan-800 sm:text-4xl md:text-5xl md:mx-auto">
             {title}

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
-use Inertia\Inertia;
 
 class QRCodeController extends Controller
 {
@@ -37,11 +36,7 @@ class QRCodeController extends Controller
                         ->margin(1)
                         ->generate($request->text);
 
-        return Inertia::render('Home/FormText', [
-            'qrcode' => base64_encode($qrcode),
-        ]);
-
-        // return response($qrcode, 200)->header("Content-Type","image/png");
+        return response($qrcode, 200)->header("Content-Type","image/png");
     }
 
     public function generateEmailQRCode(Request $request){

@@ -1,59 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '../../components/layout/Header';
 import Footer from '../../components/layout/Footer';
 import CardOptionQR from './CardOptionQR';
-import FormUrl from './FormUrl';
-import FormEmail from './FormEmail';
-import FormText from './FormText';
-import FormWhatsapp from './FormWhatsapp';
-import FormImage from './FormImage';
-import FormVideo from './FormVideo';
-import FormDocument from './FormDocument';
-import FormSocialMedia from './FormSocialMedia';
+import Navbar from '../../components/layout/Navbar';
 
-interface ImageQRProps {
-  qrcode?: string
-}
-
-const Index: React.FC<ImageQRProps> = ({ qrcode }) => {
-  const [option, setOption] = useState<string | null>(null);
+const Index: React.FC = () => {
   const optionQRData = [
-    { icon: 'fas fa-link', label: 'Url' },
-    { icon: 'fas fa-font', label: 'Text' },
-    { icon: 'fas fa-envelope', label: 'Email' },
-    { icon: 'fa-brands fa-whatsapp', label: 'Whatsapp' },
-    { icon: 'fas fa-circle-user', label: 'Social Media' },
-    { icon: 'fas fa-file', label: 'Document' },
-    { icon: 'fas fa-image', label: 'Image' },
-    { icon: 'fas fa-video', label: 'Video' },
+    { icon: 'fas fa-link', label: 'Url', url:'url' },
+    { icon: 'fas fa-font', label: 'Text', url:'text' },
+    { icon: 'fas fa-envelope', label: 'Email', url: 'email' },
+    { icon: 'fa-brands fa-whatsapp', label: 'Whatsapp', url: 'whatsapp' },
+    { icon: 'fas fa-circle-user', label: 'Social Media', url: 'social-media' },
+    { icon: 'fas fa-file', label: 'Document', url: 'document' },
+    { icon: 'fas fa-image', label: 'Image', url: 'image' },
+    { icon: 'fas fa-video', label: 'Video', 'url': 'video' },
   ]
-
-  const handleClickOption = (label: string) => {
-    setOption(label);
-  }
-
-  if (qrcode) {
-    console.log(qrcode)
-  }
 
   return (
     <>
+      <Navbar/>
       <Header
         title='Scan Me'
         subtitle='Create and Customize QR Code'
       />
       <CardOptionQR
         optionQRData={optionQRData}
-        onClickOption={handleClickOption}
       />
-      {option === 'Url' && <FormUrl/> }
-      {option === 'Text' && <FormText/>}
-      {option === 'Email' && <FormEmail/>}
-      {option === 'Whatsapp' && <FormWhatsapp/>}
-      {option === 'Social Media' && <FormSocialMedia/>}
-      {option === 'Document' && <FormDocument/>}
-      {option === 'Image' && <FormImage/>}
-      {option === 'Video' && <FormVideo/>}
       <Footer/>
     </>
   );
